@@ -5,9 +5,9 @@ description: >-
   builders, a validating form field and a combined BS+AD view. Self-contained
   BS engine, no third-party runtime dependency.
 version: 0.2.0
-repository: https://github.com/yourname/nepali_calendar_kit
-homepage: https://github.com/yourname/nepali_calendar_kit
-issue_tracker: https://github.com/yourname/nepali_calendar_kit/issues
+repository: https://github.com/pandeykushal/nepali_calendar_kit
+homepage: https://github.com/pandeykushal/nepali_calendar_kit
+issue_tracker: https://github.com/pandeykushal/nepali_calendar_kit/issues
 topics:
   - nepali
   - calendar

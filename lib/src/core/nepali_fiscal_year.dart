@@ -31,8 +31,7 @@ class NepaliFiscalYear {
   NepaliDateRange get range => NepaliDateRange(start, end);
 
   /// Label like `2081/82`.
-  String get label =>
-      '$startYear/${((startYear + 1) % 100).toString().padLeft(2, '0')}';
+  String get label => '$startYear/${((startYear + 1) % 100).toString().padLeft(2, '0')}';
 
   /// Quarter number (1-4) that [date] falls in within a fiscal year.
   static int quarterOf(NepaliDate date) {
@@ -76,8 +75,7 @@ class NepaliFiscalYear {
       default:
         return NepaliDateRange(
           NepaliDate(startYear + 1, 1, 1),
-          NepaliDate(
-              startYear + 1, 3, BsCalendarData.daysInMonth(startYear + 1, 3)),
+          NepaliDate(startYear + 1, 3, BsCalendarData.daysInMonth(startYear + 1, 3)),
         );
     }
   }

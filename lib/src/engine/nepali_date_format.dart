@@ -35,25 +35,11 @@ class NepaliDateFormat {
   final Language language;
 
   static const List<String> _tokens = <String>[
-    'yyyy',
-    'yy',
-    'y',
-    'MMMM',
-    'MMM',
-    'MM',
-    'M',
-    'dd',
-    'd',
-    'EEEE',
-    'EEE',
-    'EE',
-    'E',
-    'HH',
-    'H',
-    'mm',
-    'm',
-    'ss',
-    's',
+    'yyyy', 'yy', 'y',
+    'MMMM', 'MMM', 'MM', 'M',
+    'dd', 'd',
+    'EEEE', 'EEE', 'EE', 'E',
+    'HH', 'H', 'mm', 'm', 'ss', 's',
   ];
 
   /// Formats [date] according to [pattern].
@@ -200,8 +186,7 @@ class NepaliDateFormat {
           year = 2000 + int.parse(value);
         case 'MMMM':
           final idx = NepaliDateNames.monthsEn.indexOf(value);
-          month =
-              idx >= 0 ? idx + 1 : NepaliDateNames.monthsNp.indexOf(value) + 1;
+          month = idx >= 0 ? idx + 1 : NepaliDateNames.monthsNp.indexOf(value) + 1;
         case 'M':
           month = int.parse(value);
         case 'd':
@@ -275,7 +260,6 @@ class NepaliDateFormat {
   String _twoDigits(int n) {
     final s = n.toString().padLeft(2, '0');
     if (language != Language.nepali) return s;
-    return NepaliDateNames.digits(n, language)
-        .padLeft(2, NepaliDateNames.digits(0, language));
+    return NepaliDateNames.digits(n, language).padLeft(2, NepaliDateNames.digits(0, language));
   }
 }

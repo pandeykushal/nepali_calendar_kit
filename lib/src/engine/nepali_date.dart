@@ -204,7 +204,8 @@ class NepaliDate implements Comparable<NepaliDate> {
       NepaliDate.fromDateTime(_utcAd().subtract(duration));
 
   /// Difference between this date and [other].
-  Duration difference(NepaliDate other) => _utcAd().difference(other._utcAd());
+  Duration difference(NepaliDate other) =>
+      _utcAd().difference(other._utcAd());
 
   /// `true` if this is strictly before [other] (compared by day).
   bool isBefore(NepaliDate other) => compareTo(other) < 0;

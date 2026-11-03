@@ -48,8 +48,8 @@ class NepaliWeekView extends StatelessWidget {
     return Row(
       children: List<Widget>.generate(7, (i) {
         final day = start.add(Duration(days: i));
-        final isSel =
-            selected != null && NepaliDateUtils.isSameDay(selected!, day);
+        final isSel = selected != null &&
+            NepaliDateUtils.isSameDay(selected!, day);
         final isToday = NepaliDateUtils.isSameDay(NepaliDateUtils.today(), day);
         final hasEvents =
             (events?[NepaliDateUtils.dateOnly(day)] ?? const []).isNotEmpty ||
@@ -67,7 +67,9 @@ class NepaliWeekView extends StatelessWidget {
                   Text(
                     headers[i],
                     style: t.weekdayTextStyle?.copyWith(
-                      color: i == 6 ? t.weekendLabelColor : t.weekdayLabelColor,
+                      color: i == 6
+                          ? t.weekendLabelColor
+                          : t.weekdayLabelColor,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -86,9 +88,8 @@ class NepaliWeekView extends StatelessWidget {
                       NepaliCalendarLabels.digits(day.day, language),
                       style: TextStyle(
                         color: isSel ? t.selectedDayColor : t.dayColor,
-                        fontWeight: isSel || isToday
-                            ? FontWeight.w700
-                            : FontWeight.w400,
+                        fontWeight:
+                            isSel || isToday ? FontWeight.w700 : FontWeight.w400,
                       ),
                     ),
                   ),

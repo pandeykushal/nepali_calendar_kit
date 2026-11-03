@@ -289,19 +289,14 @@ const Map<int, List<int>> kBsMonthDataVerified = <int, List<int>>{
 /// Conversion anchor: 1 Baisakh 1970 BS = 13 April 1913 AD (verified).
 /// Anchor BS year.
 const int kAnchorBsYear = 1970;
-
 /// Anchor BS month.
 const int kAnchorBsMonth = 1;
-
 /// Anchor BS day.
 const int kAnchorBsDay = 1;
-
 /// Anchor AD year.
 const int kAnchorAdYear = 1913;
-
 /// Anchor AD month.
 const int kAnchorAdMonth = 4;
-
 /// Anchor AD day.
 const int kAnchorAdDay = 13;
 
@@ -364,11 +359,9 @@ abstract final class BsCalendarData {
   static int daysInMonth(int year, int month) {
     final months = data[year];
     if (months == null) {
-      throw ArgumentError.value(
-          year,
-          'year',
+      throw ArgumentError.value(year, 'year',
           'BS year is outside the active table ($minYear-$maxYear). '
-              'For pre-1969, set BsCalendarData.includeExperimental = true.');
+          'For pre-1969, set BsCalendarData.includeExperimental = true.');
     }
     if (month < 1 || month > 12) {
       throw ArgumentError.value(month, 'month', 'Month must be 1-12');

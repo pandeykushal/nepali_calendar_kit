@@ -35,9 +35,7 @@ class NepaliHoliday {
   /// Whether this holiday falls on [d].
   bool matches(NepaliDate d) {
     if (date != null) {
-      return d.year == date!.year &&
-          d.month == date!.month &&
-          d.day == date!.day;
+      return d.year == date!.year && d.month == date!.month && d.day == date!.day;
     }
     return d.month == _month && d.day == _day;
   }

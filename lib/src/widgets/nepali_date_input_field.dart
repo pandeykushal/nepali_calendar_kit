@@ -58,7 +58,9 @@ class NepaliDateInputField extends StatefulWidget {
 
 class _NepaliDateInputFieldState extends State<NepaliDateInputField> {
   late final TextEditingController _controller = TextEditingController(
-    text: widget.initialValue == null ? '' : _fmt(widget.initialValue!),
+    text: widget.initialValue == null
+        ? ''
+        : _fmt(widget.initialValue!),
   );
 
   String _fmt(NepaliDate d) =>

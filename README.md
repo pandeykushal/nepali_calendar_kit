@@ -5,6 +5,7 @@
 [![likes](https://img.shields.io/pub/likes/nepali_calendar_kit)](https://pub.dev/packages/nepali_calendar_kit/score)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![platforms](https://img.shields.io/badge/platforms-Android%20%7C%20iOS%20%7C%20Web%20%7C%20Windows%20%7C%20macOS%20%7C%20Linux-blue)](https://pub.dev/packages/nepali_calendar_kit)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-support-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/kushalpandey)
 
 A modern Bikram Sambat (BS) calendar and date picker toolkit for Flutter.
 
@@ -183,7 +184,22 @@ and `NepaliHoliday.fixed(...)`.
 
 - Conversion is day counting over a bundled month length table from a single
   verified anchor (1 Baisakh 1970 BS = 13 April 1913 AD).
-- Issues and pull requests are welcome on the repository.
+- Source, issues and pull requests:
+  [github.com/pandeykushal/nepali_calendar_kit](https://github.com/pandeykushal/nepali_calendar_kit).
+
+## Author
+
+Kushal Pandey -
+[GitHub](https://github.com/pandeykushal) ·
+[LinkedIn](https://www.linkedin.com/in/kushal-pandey-9aa986202/)
+
+If this package saves you time, you can
+[buy me a coffee](https://buymeacoffee.com/kushalpandey). Thank you.
+
+## Contributing
+
+Issues and pull requests are welcome. Please open an issue to discuss larger
+changes first.
 
 ## License
 

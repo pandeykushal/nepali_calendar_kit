@@ -54,8 +54,7 @@ void main() {
 
     test('english', () {
       expect(
-        NepaliRelativeTime.format(const NepaliDate(2081, 7, 10),
-            reference: ref),
+        NepaliRelativeTime.format(const NepaliDate(2081, 7, 10), reference: ref),
         'today',
       );
       expect(
@@ -63,8 +62,7 @@ void main() {
         'yesterday',
       );
       expect(
-        NepaliRelativeTime.format(const NepaliDate(2081, 7, 11),
-            reference: ref),
+        NepaliRelativeTime.format(const NepaliDate(2081, 7, 11), reference: ref),
         'tomorrow',
       );
     });

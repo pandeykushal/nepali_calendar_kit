@@ -8,12 +8,8 @@ import 'nepali_date_utils.dart';
 class NepaliDateRange {
   /// Creates a range from [a] to [b]. The two are ordered automatically.
   NepaliDateRange(NepaliDate a, NepaliDate b)
-      : start = a.isAfter(b)
-            ? NepaliDateUtils.dateOnly(b)
-            : NepaliDateUtils.dateOnly(a),
-        end = a.isAfter(b)
-            ? NepaliDateUtils.dateOnly(a)
-            : NepaliDateUtils.dateOnly(b);
+      : start = a.isAfter(b) ? NepaliDateUtils.dateOnly(b) : NepaliDateUtils.dateOnly(a),
+        end = a.isAfter(b) ? NepaliDateUtils.dateOnly(a) : NepaliDateUtils.dateOnly(b);
 
   /// The earlier endpoint (inclusive), time stripped.
   final NepaliDate start;

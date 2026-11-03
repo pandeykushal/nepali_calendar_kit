@@ -191,7 +191,8 @@ class _NepaliCalendarState extends State<NepaliCalendar> {
     });
   }
 
-  Language get _language => widget.language ?? Language.english;
+  Language get _language =>
+      widget.language ?? Language.english;
 
   int get _minYear => widget.firstDate?.year ?? kNckMinBsYear;
   int get _maxYear => widget.lastDate?.year ?? kNckMaxBsYear;
@@ -264,8 +265,7 @@ class _NepaliCalendarState extends State<NepaliCalendar> {
           }
         });
         if (_rangeStart != null && _rangeEnd != null) {
-          widget.onRangeChanged
-              ?.call(NepaliDateRange(_rangeStart!, _rangeEnd!));
+          widget.onRangeChanged?.call(NepaliDateRange(_rangeStart!, _rangeEnd!));
         } else {
           widget.onRangeChanged?.call(null);
         }
@@ -293,8 +293,8 @@ class _NepaliCalendarState extends State<NepaliCalendar> {
     var isInRange = false;
 
     if (widget.selectionMode == NepaliSelectionMode.single) {
-      isSelected =
-          _selected != null && NepaliDateUtils.isSameDay(_selected!, date);
+      isSelected = _selected != null &&
+          NepaliDateUtils.isSameDay(_selected!, date);
     } else if (widget.selectionMode == NepaliSelectionMode.range) {
       if (_rangeStart != null && _rangeEnd != null) {
         final range = NepaliDateRange(_rangeStart!, _rangeEnd!);
@@ -312,8 +312,8 @@ class _NepaliCalendarState extends State<NepaliCalendar> {
 
     final events =
         _eventIndex[NepaliDateUtils.dayKey(date)] ?? const <CalendarEvent>[];
-    final isHoliday =
-        widget.highlightHolidays && events.any((e) => e.isHoliday);
+    final isHoliday = widget.highlightHolidays &&
+        events.any((e) => e.isHoliday);
 
     return NepaliDayContext(
       date: date,
@@ -332,8 +332,7 @@ class _NepaliCalendarState extends State<NepaliCalendar> {
 
   @override
   Widget build(BuildContext context) {
-    final resolved =
-        (widget.theme ?? const NepaliCalendarTheme()).resolve(context);
+    final resolved = (widget.theme ?? const NepaliCalendarTheme()).resolve(context);
     final grid = NepaliMonthGrid(_visibleMonth.year, _visibleMonth.month);
 
     final header = widget.headerBuilder?.call(context, _visibleMonth) ??
@@ -389,8 +388,7 @@ class _NepaliCalendarState extends State<NepaliCalendar> {
                 );
               },
               child: KeyedSubtree(
-                key: ValueKey<String>(
-                    '${_visibleMonth.year}-${_visibleMonth.month}'),
+                key: ValueKey<String>('${_visibleMonth.year}-${_visibleMonth.month}'),
                 child: _Grid(
                   grid: grid,
                   contextFor: _contextFor,
@@ -473,18 +471,8 @@ class _AdSubtitle extends StatelessWidget {
   Widget build(BuildContext context) {
     final ad = month.toDateTime();
     const adMonths = <String>[
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec',
+      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
     ];
     return Padding(
       padding: const EdgeInsets.only(bottom: 2),

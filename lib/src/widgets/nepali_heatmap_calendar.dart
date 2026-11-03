@@ -90,11 +90,9 @@ class NepaliHeatmapCalendar extends StatelessWidget {
               child: Container(
                 margin: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
-                  color: value > 0
-                      ? fill
-                      : (cell.inMonth
-                          ? base.withValues(alpha: 0.06)
-                          : Colors.transparent),
+                  color: value > 0 ? fill : (cell.inMonth
+                      ? base.withValues(alpha: 0.06)
+                      : Colors.transparent),
                   borderRadius: BorderRadius.circular(6),
                 ),
                 alignment: Alignment.center,

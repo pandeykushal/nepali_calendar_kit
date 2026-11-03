@@ -47,8 +47,7 @@ class NepaliDateFormField extends FormField<NepaliDate> {
             final lang = language ?? Language.english;
             final text = value == null
                 ? null
-                : (format ?? NepaliDateFormat('yyyy-MM-dd', lang))
-                    .format(value);
+                : (format ?? NepaliDateFormat('yyyy-MM-dd', lang)).format(value);
 
             return InkWell(
               onTap: enabled ? () => state._openPicker(onChanged) : null,
@@ -62,8 +61,12 @@ class NepaliDateFormField extends FormField<NepaliDate> {
                 child: Text(
                   text ?? hintText,
                   style: value == null
-                      ? Theme.of(field.context).textTheme.bodyLarge?.copyWith(
-                            color: Theme.of(field.context).hintColor,
+                      ? Theme.of(field.context)
+                          .textTheme
+                          .bodyLarge
+                          ?.copyWith(
+                            color: Theme.of(field.context)
+                                .hintColor,
                           )
                       : Theme.of(field.context).textTheme.bodyLarge,
                 ),

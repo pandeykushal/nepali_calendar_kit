@@ -7,7 +7,8 @@
 library nepali_calendar_kit;
 
 export 'src/engine/language.dart';
-export 'src/engine/nepali_date.dart' show NepaliDate, NepaliDateFromDateTime;
+export 'src/engine/nepali_date.dart'
+    show NepaliDate, NepaliDateFromDateTime;
 export 'src/engine/nepali_date_format.dart';
 export 'src/engine/nepali_date_names.dart';
 export 'src/engine/bs_calendar_data.dart'
@@ -43,8 +44,7 @@ export 'src/widgets/calendar_builders.dart';
 export 'src/widgets/combined_bs_ad_view.dart';
 export 'src/widgets/cupertino_nepali_date_picker.dart';
 export 'src/widgets/nepali_agenda_view.dart';
-export 'src/widgets/nepali_calendar.dart'
-    show NepaliCalendar, NepaliRangeChanged;
+export 'src/widgets/nepali_calendar.dart' show NepaliCalendar, NepaliRangeChanged;
 export 'src/widgets/nepali_date_form_field.dart';
 export 'src/widgets/nepali_date_input_field.dart';
 export 'src/widgets/nepali_date_picker_dialog.dart';
