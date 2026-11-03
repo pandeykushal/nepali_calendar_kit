@@ -48,8 +48,7 @@ class CombinedBsAdView extends StatefulWidget {
 }
 
 class _CombinedBsAdViewState extends State<CombinedBsAdView> {
-  late NepaliDate _selected =
-      widget.initialDate ?? NepaliDateUtils.today();
+  late NepaliDate _selected = widget.initialDate ?? NepaliDateUtils.today();
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +63,8 @@ class _CombinedBsAdViewState extends State<CombinedBsAdView> {
             Expanded(
               child: _DateChip(
                 label: 'Bikram Sambat',
-                value: NepaliDateFormat('EEE, MMMM d, y', lang).format(_selected),
+                value:
+                    NepaliDateFormat('EEE, MMMM d, y', lang).format(_selected),
                 icon: Icons.calendar_month,
               ),
             ),
@@ -98,11 +98,27 @@ class _CombinedBsAdViewState extends State<CombinedBsAdView> {
 
   String _formatAd(DateTime ad) {
     const months = <String>[
-      'January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December',
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
     ];
     const weekdays = <String>[
-      'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun',
+      'Mon',
+      'Tue',
+      'Wed',
+      'Thu',
+      'Fri',
+      'Sat',
+      'Sun',
     ];
     return '${weekdays[ad.weekday - 1]}, ${months[ad.month - 1]} ${ad.day}, ${ad.year}';
   }

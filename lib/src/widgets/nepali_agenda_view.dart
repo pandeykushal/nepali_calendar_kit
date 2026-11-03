@@ -47,7 +47,8 @@ class NepaliAgendaView extends StatelessWidget {
 
     if (days.isEmpty) {
       return emptyPlaceholder ??
-          const Center(child: Padding(
+          const Center(
+              child: Padding(
             padding: EdgeInsets.all(24),
             child: Text('No events'),
           ));
@@ -84,7 +85,8 @@ class NepaliAgendaView extends StatelessWidget {
                           : Theme.of(context).colorScheme.tertiary),
                 ),
                 title: Text(event.title),
-                onTap: onEventTap == null ? null : () => onEventTap!(day, event),
+                onTap:
+                    onEventTap == null ? null : () => onEventTap!(day, event),
               ),
           ],
         );

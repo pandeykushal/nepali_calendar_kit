@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart' show defaultTargetPlatform, TargetPlatform;
+import 'package:flutter/foundation.dart'
+    show defaultTargetPlatform, TargetPlatform;
 import 'package:flutter/material.dart';
 import '../engine/language.dart';
 import '../engine/nepali_date.dart';
@@ -126,7 +127,8 @@ Future<NepaliDateRange?> showNepaliDateRangePicker({
 NepaliDatePickerStyle _resolveStyle(NepaliDatePickerStyle style) {
   if (style != NepaliDatePickerStyle.adaptive) return style;
   return switch (defaultTargetPlatform) {
-    TargetPlatform.iOS || TargetPlatform.macOS =>
+    TargetPlatform.iOS ||
+    TargetPlatform.macOS =>
       NepaliDatePickerStyle.cupertino,
     _ => NepaliDatePickerStyle.material,
   };
