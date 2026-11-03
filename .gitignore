@@ -9,3 +9,6 @@ pubspec.lock
 .idea/
 *.iml
 .vscode/
+.doc/
+.CHANGELOG
+.tool/
