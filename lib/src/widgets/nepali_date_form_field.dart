@@ -25,7 +25,7 @@ class NepaliDateFormField extends FormField<NepaliDate> {
   /// Creates the form field.
   NepaliDateFormField({
     super.key,
-    NepaliDate? initialValue,
+    super.initialValue,
     this.firstDate,
     this.lastDate,
     this.language,
@@ -33,14 +33,13 @@ class NepaliDateFormField extends FormField<NepaliDate> {
     this.pickerStyle = NepaliDatePickerStyle.adaptive,
     this.format,
     this.decoration = const InputDecoration(),
-    this.enabled = true,
+    bool enabled = true,
     this.hintText = 'Select date',
     super.onSaved,
     super.validator,
     super.autovalidateMode,
     ValueChanged<NepaliDate?>? onChanged,
   }) : super(
-          initialValue: initialValue,
           enabled: enabled,
           builder: (field) {
             final state = field as _NepaliDateFormFieldState;
@@ -48,7 +47,8 @@ class NepaliDateFormField extends FormField<NepaliDate> {
             final lang = language ?? Language.english;
             final text = value == null
                 ? null
-                : (format ?? NepaliDateFormat('yyyy-MM-dd', lang)).format(value);
+                : (format ?? NepaliDateFormat('yyyy-MM-dd', lang))
+                    .format(value);
 
             return InkWell(
               onTap: enabled ? () => state._openPicker(onChanged) : null,
@@ -62,12 +62,8 @@ class NepaliDateFormField extends FormField<NepaliDate> {
                 child: Text(
                   text ?? hintText,
                   style: value == null
-                      ? Theme.of(field.context)
-                          .textTheme
-                          .bodyLarge
-                          ?.copyWith(
-                            color: Theme.of(field.context)
-                                .hintColor,
+                      ? Theme.of(field.context).textTheme.bodyLarge?.copyWith(
+                            color: Theme.of(field.context).hintColor,
                           )
                       : Theme.of(field.context).textTheme.bodyLarge,
                 ),
@@ -96,9 +92,6 @@ class NepaliDateFormField extends FormField<NepaliDate> {
 
   /// Field decoration.
   final InputDecoration decoration;
-
-  /// Whether the field is interactive.
-  final bool enabled;
 
   /// Placeholder shown when nothing is selected.
   final String hintText;

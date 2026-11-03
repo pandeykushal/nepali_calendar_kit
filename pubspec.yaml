@@ -16,14 +16,13 @@ topics:
   - localization
 
 environment:
-  
   sdk: ">=3.6.0 <4.0.0"
-  flutter: ">=3.27.0"
+  flutter: ">=3.35.0"
 
 dependencies:
   flutter:
     sdk: flutter
- 
+  # No third-party runtime dependencies — the BS engine is built in.
 
 dev_dependencies:
   flutter_test:

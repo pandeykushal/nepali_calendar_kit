@@ -22,8 +22,8 @@ void main() {
       expect(NepaliDate.tryParse('nope'), isNull);
     });
 
-    test('NepaliDateFormat round-trips format→parse', () {
-      final fmt = NepaliDateFormat('EEE, MMMM d, y');
+    test('NepaliDateFormat round-trips format then parse', () {
+      const fmt = NepaliDateFormat('EEE, MMMM d, y');
       final s = fmt.format(const NepaliDate(2081, 7, 3));
       final back = fmt.parse(s);
       expect([back.year, back.month, back.day], [2081, 7, 3]);
@@ -50,18 +50,32 @@ void main() {
   });
 
   group('Relative time', () {
+    const ref = NepaliDate(2081, 7, 10);
+
     test('english', () {
-      final ref = const NepaliDate(2081, 7, 10);
-      expect(NepaliRelativeTime.format(const NepaliDate(2081, 7, 10), reference: ref), 'today');
-      expect(NepaliRelativeTime.format(const NepaliDate(2081, 7, 9), reference: ref), 'yesterday');
-      expect(NepaliRelativeTime.format(const NepaliDate(2081, 7, 11), reference: ref), 'tomorrow');
+      expect(
+        NepaliRelativeTime.format(const NepaliDate(2081, 7, 10),
+            reference: ref),
+        'today',
+      );
+      expect(
+        NepaliRelativeTime.format(const NepaliDate(2081, 7, 9), reference: ref),
+        'yesterday',
+      );
+      expect(
+        NepaliRelativeTime.format(const NepaliDate(2081, 7, 11),
+            reference: ref),
+        'tomorrow',
+      );
     });
 
     test('nepali', () {
-      final ref = const NepaliDate(2081, 7, 10);
       expect(
-        NepaliRelativeTime.format(const NepaliDate(2081, 7, 10),
-            reference: ref, language: Language.nepali),
+        NepaliRelativeTime.format(
+          const NepaliDate(2081, 7, 10),
+          reference: ref,
+          language: Language.nepali,
+        ),
         'आज',
       );
     });
@@ -90,7 +104,7 @@ void main() {
   });
 
   group('Presets', () {
-    test('today is a single-day range', () {
+    test('today and this week', () {
       final p = NepaliDatePresets(asOf: const NepaliDate(2081, 7, 10));
       expect(p.today.durationInDays, 1);
       expect(p.thisWeek.durationInDays, 7);
@@ -110,8 +124,7 @@ void main() {
     test('researched candidate dataset has only valid dates', () {
       for (final year in [2081, 2082]) {
         for (final h in candidateHolidaysForYear(year)) {
-          final d = h.date!;
-          expect(d.isValid, isTrue, reason: '${h.title} ${d.year}-${d.month}-${d.day}');
+          expect(h.date!.isValid, isTrue);
         }
       }
     });

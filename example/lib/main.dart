@@ -211,7 +211,8 @@ class _DemoHomeState extends State<DemoHome> {
                         ? Colors.red.withValues(alpha: 0.15)
                         : Colors.transparent,
                     child: Text(
-                      NepaliCalendarLabels.digits(day.date.day, widget.language),
+                      NepaliCalendarLabels.digits(
+                          day.date.day, widget.language),
                       style: TextStyle(
                         fontSize: 12,
                         color: day.isWeekend ? Colors.red : null,
@@ -279,12 +280,12 @@ class _DemoHomeState extends State<DemoHome> {
               spacing: 8,
               runSpacing: 4,
               children: [
-                for (final entry
-                    in NepaliDatePresets().labeled.entries)
+                for (final entry in NepaliDatePresets().labeled.entries)
                   ActionChip(
                     label: Text(entry.key),
                     onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(
+                      SnackBar(
+                          content: Text(
                         '${entry.key}: ${entry.value.durationInDays} days',
                       )),
                     ),
@@ -300,7 +301,8 @@ class _DemoHomeState extends State<DemoHome> {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('DOB ${NepaliDateFormat('yyyy-MM-dd', widget.language).format(dob)}'),
+                  Text(
+                      'DOB ${NepaliDateFormat('yyyy-MM-dd', widget.language).format(dob)}'),
                   Text('Age: $age'),
                   Text('Relative: '
                       '${NepaliRelativeTime.format(dob, language: widget.language)}'),
@@ -314,7 +316,7 @@ class _DemoHomeState extends State<DemoHome> {
               FilledButton.tonal(
                 onPressed: () async {
                   final dt = await showNepaliDateTimePicker(
-                    context: context, language: widget.language);
+                      context: context, language: widget.language);
                   if (dt != null) {
                     setState(() => _dateTime = dt);
                   }
@@ -322,10 +324,11 @@ class _DemoHomeState extends State<DemoHome> {
                 child: const Text('Pick date + time'),
               ),
               const SizedBox(width: 12),
-              Expanded(child: Text(_dateTime == null
-                  ? 'None'
-                  : NepaliDateFormat('yyyy-MM-dd HH:mm', widget.language)
-                      .format(_dateTime!))),
+              Expanded(
+                  child: Text(_dateTime == null
+                      ? 'None'
+                      : NepaliDateFormat('yyyy-MM-dd HH:mm', widget.language)
+                          .format(_dateTime!))),
             ]),
           ),
           _section(
@@ -470,7 +473,6 @@ class _DateConverterSectionState extends State<DateConverterSection> {
           ],
         ),
         const SizedBox(height: 16),
-
         Text('AD → BS', style: Theme.of(context).textTheme.labelLarge),
         const SizedBox(height: 6),
         Row(

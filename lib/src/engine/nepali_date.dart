@@ -40,9 +40,11 @@ class NepaliDate implements Comparable<NepaliDate> {
   /// Second, 0-59.
   final int second;
 
-  /// The AD anchor as a [DateTime] (midnight).
+  /// The AD anchor as a UTC instant. All day counting is done in UTC so that
+  /// Nepal's historical offset change (+5:30 to +5:45 in 1986) and any DST
+  /// elsewhere cannot shift a result by a day.
   static final DateTime _anchorAd =
-      DateTime(kAnchorAdYear, kAnchorAdMonth, kAnchorAdDay);
+      DateTime.utc(kAnchorAdYear, kAnchorAdMonth, kAnchorAdDay);
 
   /// Epoch-day index of the anchor, recomputed each call so it always uses the
   /// same `minYear` basis as the date being converted. (Computing it once would
@@ -56,7 +58,7 @@ class NepaliDate implements Comparable<NepaliDate> {
 
   /// Converts an AD [dateTime] to its BS date-time.
   factory NepaliDate.fromDateTime(DateTime dateTime) {
-    final dateOnly = DateTime(dateTime.year, dateTime.month, dateTime.day);
+    final dateOnly = DateTime.utc(dateTime.year, dateTime.month, dateTime.day);
     final diff = dateOnly.difference(_anchorAd).inDays;
     var remaining = _anchorEpochDays() + diff;
 
@@ -154,10 +156,20 @@ class NepaliDate implements Comparable<NepaliDate> {
   }
 
   /// Converts this BS date to its AD [DateTime] (carrying the time parts).
+  ///
+  /// Throws [ArgumentError] if the year is outside the active table.
   DateTime toDateTime() {
+    if (!BsCalendarData.hasYear(year)) {
+      throw ArgumentError.value(
+        year,
+        'year',
+        'BS year is outside the active range '
+            '(${BsCalendarData.minYear}-${BsCalendarData.maxYear}).',
+      );
+    }
     final dayDelta = _epochDays(year, month, day) - _anchorEpochDays();
-    final adDate = _anchorAd.add(Duration(days: dayDelta));
-    return DateTime(adDate.year, adDate.month, adDate.day, hour, minute, second);
+    final adUtc = _anchorAd.add(Duration(days: dayDelta));
+    return DateTime(adUtc.year, adUtc.month, adUtc.day, hour, minute, second);
   }
 
   /// Day of week, Sunday = 1 ... Saturday = 7.
@@ -177,17 +189,22 @@ class NepaliDate implements Comparable<NepaliDate> {
   /// This date with the time stripped to midnight.
   NepaliDate get dateOnly => NepaliDate(year, month, day);
 
-  /// Returns a new date [duration] later (via AD arithmetic).
+  /// This date's AD value as a UTC instant, for offset-safe arithmetic.
+  DateTime _utcAd() {
+    final d = toDateTime();
+    return DateTime.utc(d.year, d.month, d.day, d.hour, d.minute, d.second);
+  }
+
+  /// Returns a new date [duration] later.
   NepaliDate add(Duration duration) =>
-      NepaliDate.fromDateTime(toDateTime().add(duration));
+      NepaliDate.fromDateTime(_utcAd().add(duration));
 
   /// Returns a new date [duration] earlier.
   NepaliDate subtract(Duration duration) =>
-      NepaliDate.fromDateTime(toDateTime().subtract(duration));
+      NepaliDate.fromDateTime(_utcAd().subtract(duration));
 
   /// Difference between this date and [other].
-  Duration difference(NepaliDate other) =>
-      toDateTime().difference(other.toDateTime());
+  Duration difference(NepaliDate other) => _utcAd().difference(other._utcAd());
 
   /// `true` if this is strictly before [other] (compared by day).
   bool isBefore(NepaliDate other) => compareTo(other) < 0;

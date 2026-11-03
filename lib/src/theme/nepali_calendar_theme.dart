@@ -100,8 +100,7 @@ class NepaliCalendarTheme {
       backgroundColor: backgroundColor ?? scheme.surface,
       headerBackgroundColor: headerBackgroundColor ?? Colors.transparent,
       headerForegroundColor: headerForegroundColor ?? scheme.onSurface,
-      weekdayLabelColor:
-          weekdayLabelColor ?? scheme.onSurfaceVariant,
+      weekdayLabelColor: weekdayLabelColor ?? scheme.onSurfaceVariant,
       weekendLabelColor: weekendLabelColor ?? scheme.error,
       dayColor: dayColor ?? scheme.onSurface,
       outsideMonthDayColor: outsideMonthDayColor ??
@@ -111,10 +110,9 @@ class NepaliCalendarTheme {
       todayColor: todayColor ?? scheme.primary,
       todayBorderColor: todayBorderColor ?? scheme.primary,
       selectedDayColor: selectedDayColor ?? scheme.onPrimary,
-      selectedDayBackgroundColor:
-          selectedDayBackgroundColor ?? scheme.primary,
-      rangeHighlightColor: rangeHighlightColor ??
-          scheme.primary.withValues(alpha: 0.12),
+      selectedDayBackgroundColor: selectedDayBackgroundColor ?? scheme.primary,
+      rangeHighlightColor:
+          rangeHighlightColor ?? scheme.primary.withValues(alpha: 0.12),
       markerColor: markerColor ?? scheme.tertiary,
       holidayColor: holidayColor ?? scheme.error,
       dayTextStyle: dayTextStyle ?? textTheme.bodyMedium,
@@ -128,7 +126,8 @@ class NepaliCalendarTheme {
   }
 
   /// A convenience light theme seeded from [seedColor].
-  factory NepaliCalendarTheme.light({Color seedColor = const Color(0xFFDC143C)}) {
+  factory NepaliCalendarTheme.light(
+      {Color seedColor = const Color(0xFFDC143C)}) {
     final scheme = ColorScheme.fromSeed(seedColor: seedColor);
     return NepaliCalendarTheme(
       backgroundColor: scheme.surface,
@@ -139,7 +138,8 @@ class NepaliCalendarTheme {
   }
 
   /// A convenience dark theme seeded from [seedColor].
-  factory NepaliCalendarTheme.dark({Color seedColor = const Color(0xFFDC143C)}) {
+  factory NepaliCalendarTheme.dark(
+      {Color seedColor = const Color(0xFFDC143C)}) {
     final scheme = ColorScheme.fromSeed(
       seedColor: seedColor,
       brightness: Brightness.dark,

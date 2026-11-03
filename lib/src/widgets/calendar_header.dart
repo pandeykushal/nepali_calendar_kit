@@ -166,7 +166,7 @@ class _MonthYearJumpSheetState extends State<_MonthYearJumpSheet> {
               children: <Widget>[
                 Expanded(
                   child: DropdownButtonFormField<int>(
-                    value: _year,
+                    initialValue: _year,
                     decoration: const InputDecoration(labelText: 'Year'),
                     items: <DropdownMenuItem<int>>[
                       for (final y in years)
@@ -183,7 +183,7 @@ class _MonthYearJumpSheetState extends State<_MonthYearJumpSheet> {
                 const SizedBox(width: 12),
                 Expanded(
                   child: DropdownButtonFormField<int>(
-                    value: _month,
+                    initialValue: _month,
                     decoration: const InputDecoration(labelText: 'Month'),
                     items: <DropdownMenuItem<int>>[
                       for (var m = 1; m <= 12; m++)

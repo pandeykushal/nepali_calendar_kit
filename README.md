@@ -188,4 +188,3 @@ and `NepaliHoliday.fixed(...)`.
 ## License
 
 MIT. See the [LICENSE](LICENSE) file.
-# nepali_calendar_kit

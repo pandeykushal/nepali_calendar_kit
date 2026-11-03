@@ -20,7 +20,8 @@ void main() {
         for (var m = 1; m <= 12; m++) {
           final dim = BsCalendarData.daysInMonth(y, m);
           for (var d = 1; d <= dim; d++) {
-            final back = NepaliDate.fromDateTime(NepaliDate(y, m, d).toDateTime());
+            final back =
+                NepaliDate.fromDateTime(NepaliDate(y, m, d).toDateTime());
             expect([back.year, back.month, back.day], [y, m, d]);
           }
         }
@@ -37,7 +38,8 @@ void main() {
     });
 
     test('pre-1969 throws while experimental is off', () {
-      expect(() => const NepaliDate(1950, 1, 1).toDateTime(), throwsArgumentError);
+      expect(
+          () => const NepaliDate(1950, 1, 1).toDateTime(), throwsArgumentError);
     });
   });
 
@@ -58,7 +60,8 @@ void main() {
         for (var m = 1; m <= 12; m++) {
           final dim = BsCalendarData.daysInMonth(y, m);
           for (var d = 1; d <= dim; d++) {
-            final back = NepaliDate.fromDateTime(NepaliDate(y, m, d).toDateTime());
+            final back =
+                NepaliDate.fromDateTime(NepaliDate(y, m, d).toDateTime());
             expect([back.year, back.month, back.day], [y, m, d]);
           }
         }

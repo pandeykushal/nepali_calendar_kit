@@ -51,7 +51,8 @@ class NepaliDatePresets {
   /// The whole previous fiscal year.
   NepaliDateRange get lastFiscalYear {
     final fy = NepaliFiscalYear.of(_today);
-    return NepaliFiscalYear.of(fy.start.subtract(const Duration(days: 1))).range;
+    return NepaliFiscalYear.of(fy.start.subtract(const Duration(days: 1)))
+        .range;
   }
 
   /// The current fiscal quarter.
