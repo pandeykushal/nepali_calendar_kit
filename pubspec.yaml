@@ -2,7 +2,7 @@ name: nepali_calendar_kit
 description: >-
   Material 3 Bikram Sambat (BS) calendar and date picker toolkit for Flutter:
   pickers, range and multi-date selection, events, and a built-in BS/AD engine.
-version: 0.2.0
+version: 0.2.1
 repository: https://github.com/pandeykushal/nepali_calendar_kit
 homepage: https://github.com/pandeykushal/nepali_calendar_kit
 issue_tracker: https://github.com/pandeykushal/nepali_calendar_kit/issues

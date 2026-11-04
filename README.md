@@ -52,7 +52,7 @@ Add the package to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  nepali_calendar_kit: ^0.2.0
+  nepali_calendar_kit: ^0.2.1
 ```
 
 Then import it:

@@ -1,4 +1,4 @@
-## 0.2.0
+## 0.2.1
 
 - Added date parsing: `NepaliDate.parse`/`tryParse` and `NepaliDateFormat.parse`.
 - Added multiple (non-contiguous) date selection.
