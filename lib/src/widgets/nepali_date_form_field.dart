@@ -33,16 +33,16 @@ class NepaliDateFormField extends FormField<NepaliDate> {
     this.pickerStyle = NepaliDatePickerStyle.adaptive,
     this.format,
     this.decoration = const InputDecoration(),
-    bool enabled = true,
+    super.enabled,
     this.hintText = 'Select date',
     super.onSaved,
     super.validator,
     super.autovalidateMode,
     ValueChanged<NepaliDate?>? onChanged,
   }) : super(
-          enabled: enabled,
           builder: (field) {
             final state = field as _NepaliDateFormFieldState;
+            final enabled = field.widget.enabled;
             final value = field.value;
             final lang = language ?? Language.english;
             final text = value == null
